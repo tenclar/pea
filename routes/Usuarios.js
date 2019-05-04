@@ -16,10 +16,9 @@ usuarios.post('/cadastro', (req, res) => {
     const today = new Date()
    
     const usuarioData ={
-        nome_completo: req.body.nome_completo,
+        nome: req.body.nome,
         email: req.body.email,
         password: req.body.password,
-        numerocelular: parseInt(req.body.numerocelular),
         created: today
     }
     
