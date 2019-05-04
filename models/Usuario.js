@@ -10,7 +10,7 @@ const usuario = db.sequelize.define('usuario',
             autoIncremet: true
         },
         
-        nome_completo: {
+        nome: {
             type:Sequelize.STRING
         },
         email: {
@@ -19,9 +19,7 @@ const usuario = db.sequelize.define('usuario',
         password: {
             type:Sequelize.STRING
         },
-        numerocelular: {
-            type:Sequelize.INTEGER
-        },
+        
         created: {
             type: Sequelize.DATE,
             defaultValue: Sequelize.NOW
