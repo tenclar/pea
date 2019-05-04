@@ -1,10 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import logo from './logo.svg';
+//import './App.css';
+
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Landing from './components/Landing'
+import Login from './components/Login'
+import Cadastro from './components/Cadastro'
+import Profile from './components/Profile'
 
 function App() {
   return (
-    <div className="App">
+   /*  <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +26,21 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div> */
+
+
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Route exatc path="/" component={Landing} />
+          <div className="container">
+            <Route exatc path="/cadastro" component={Cadastro} />
+            <Route exatc path="/login" component={Login} />
+            <Route exatc path="/profile" component={Profile} />        
+          </div>
+      </div>
+    
+    </Router>
   );
 }
 
