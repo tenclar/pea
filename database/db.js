@@ -2,6 +2,7 @@ const Sequelize = require("sequelize")
 const sequelize = new Sequelize("pea", "root", "root", {
   host: 'localhost',
   dialect: 'mysql' ,
+  //logging: false,
   //operatorsAliases: false,
 
     pool:{
