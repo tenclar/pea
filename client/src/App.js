@@ -4,44 +4,62 @@ import React from 'react';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login'
+import Home from './components/Home'
+import Login from './components/usuarios/Login'
 import Cadastro from './components/Cadastro'
 import Profile from './components/Profile'
+import Sidebar from './components/Sidebar'
+import SidebarRight from './components/SidebarRight'
+import Footer from './components/Footer'
+import EstadoForm from './components/estado/EstadoForm'
 
 function App() {
-  return (
-   /*  <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> */
 
-
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Route exatc path="/" component={Landing} />
-          <div className="container">
-            <Route exatc path="/cadastro" component={Cadastro} />
-            <Route exatc path="/login" component={Login} />
-            <Route exatc path="/profile" component={Profile} />        
-          </div>
-      </div>
+  
     
-    </Router>
-  );
-}
+    const usuarioLink = (
+      <div>
+       <Route exatc path="/login" component={Login} />
+       <Footer />
+      </div>
+    )
+
+    const adminLink = (
+      <div>
+        <Navbar />
+          <Sidebar />
+            
+              
+              <Route exatc path="/home" component={Home} />
+              <Route exatc path="/cadastro" component={Cadastro} />            
+              <Route exatc path="/profile" component={Profile} /> 
+              <Route exatc path="/estados/novo" component={EstadoForm} /> 
+              
+            
+            <Footer />
+          <SidebarRight />
+      </div>
+    )
+       
+       
+  
+
+    return (
+    
+      
+      <Router>
+      
+        <div className="App">    
+
+        {/* localStorage.usuariotoken ? adminLink: usuarioLink */}
+
+        {localStorage.usuariotoken ?  usuarioLink: adminLink}
+        
+        
+        </div>      
+      </Router>
+    )
+  }
+
 
 export default App;
