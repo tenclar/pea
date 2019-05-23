@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
 const db = require("../database/db")
 
-const estado = db.sequelize.define('estados',
+const cidade = db.sequelize.define('cidades',
     
     {
         id: {
@@ -13,8 +13,17 @@ const estado = db.sequelize.define('estados',
         nome: {
             type:Sequelize.STRING
         },
+        estado_id: {
+            type:Sequelize.INTEGER
+        },
+        usuario_id: {
+            type:Sequelize.INTEGER
+        },
+        regionalestadual_id: {
+            type:Sequelize.INTEGER
+        },
         
-        sigla: {
+        cep: {
             type:Sequelize.STRING
         }
                
@@ -22,4 +31,4 @@ const estado = db.sequelize.define('estados',
    
 )
 
-module.exports = estado
+module.exports = cidade

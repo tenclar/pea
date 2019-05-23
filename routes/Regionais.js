@@ -3,13 +3,13 @@ const router = express.Router()
 
 const cors = require('cors')
 
-const Estado = require('../models/Estado')
+const Regional = require('../models/Regional')
 router.use(cors())
 
 
 
 router.get('/', async(req, res) => {
-    const e = await Estado.findAll()
+    const e = await Regional.findAll()
     res.send(e)
 })
 
@@ -18,24 +18,24 @@ router.post('/novo', (req, res) => {
     const today = new Date()
    
     const eData ={
-        nome: req.body.nome,
-        sigla: req.body.sigla
+        nome: req.body.nome
+        
     }
     
-    Estado.findOne({
+    Regional.findOne({
         where : {
             nome: req.body.nome
         }
     })
-    .then(estado => {
-        if(!estado){
+    .then(regional => {
+        if(!regional){
             /* bcryptjs.hash(req.body.password, 10, (err,hash) => {
                 usuarioData.password = hash; */
                 
 
-                Estado.create(eData)
-                .then (estado => {
-                    res.json({status: estado.nome + '  cadastrado !'})
+                Regional.create(eData)
+                .then (regional => {
+                    res.json({status: regional.nome + '  cadastrado !'})
                 })
                 .catch(err => {
                     res.send('error: '+ err)
@@ -44,7 +44,7 @@ router.post('/novo', (req, res) => {
              // })
 
         }else{
-            res.json({error: "Estado já Existe"})            
+            res.json({error: "Regional já Existe"})            
         }
     })
     .catch( err => {

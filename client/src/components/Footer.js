@@ -14,6 +14,9 @@ class Footer extends Component {
                      {/*   <!-- Default to the left --> */}
                     <strong>Copyright &copy; 2019 <a href="##">IAIS - Instituto de Ação e Inclusão Social</a>.</strong> All rights reserved.
                 </footer>
+
+
+                
             </div>
 
 

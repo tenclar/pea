@@ -32,7 +32,7 @@ class Sidebar extends Component {
             
             <ul className="sidebar-menu" data-widget="tree">
                 <li className="header">EXPEDIENTE</li>
-                <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li className="active"><a href="/"><i className="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
                 <li className="treeview">
                 <a href="##"><i className="fa fa-files-o"></i> <span>Ações</span>
@@ -41,7 +41,7 @@ class Sidebar extends Component {
                     </span>
                 </a>
                 <ul className="treeview-menu">
-                    <li><a href="##">Nova Ação</a></li>
+                    <li><a href="/acoes/cadastro" >Nova Ação</a></li>
                     <li><a href="##">Lista de Ações</a></li>
                 </ul>
                 </li>
@@ -70,16 +70,16 @@ class Sidebar extends Component {
                         </span>
                     </a>
                     <ul className="treeview-menu">
-                        <li><a href="##">Modalidades</a></li>
-                        <li><a href="##">Meio de Transportes</a></li>
-                        <li><a href="##">Cidades</a></li>
-                        <li><Link to="/bairros/novo" >Bairros </Link></li>
-                        <li><Link to="/estados/novo" >Estados </Link></li>
-                        <li><a href="##">Endereços</a></li>
-                        <li><a href="##">Orgãos</a></li>
-                        <li><a href="##">Temas</a></li>
-                        <li><a href="##">Área Temáticas</a></li>
-                        <li><a href="##">Serv. Sócio Assistenciais</a></li>
+                        <li><Link to="/modalidades" >Modalidades</Link></li>
+                        <li><Link to="/meiotransportes" >Meio de Transportes</Link></li>                      
+                        <li><Link to="/orgaos" >Orgãos</Link></li>
+                        <li><Link to="/temas" >Temas</Link></li>
+                        <li><Link to="/areatematica" >Área Temáticas</Link></li>
+                        <li><Link to="/servicos" >Serv. Sócio Assistenciais</Link></li>
+                        <li><Link to="/estados" >Estados </Link></li>
+                        <li><Link to="/cidades" >Cidades</Link></li>
+                        <li><Link to="/bairros" >Bairros </Link></li>                       
+                        <li><Link to="/enderecos" >Endereços</Link></li>
                     </ul>
                 </li>
             </ul>

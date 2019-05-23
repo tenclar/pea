@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 
-const estadoNovo = novo =>{
+const regionalNovo = novo =>{
     return axios
-    .post('/estados/novo', {
+    .post('/regionais/novo', {
         nome: novo.nome,
-        sigla: novo.sigla
+        descricao: novo.descricao
         
     })
     .then(res => {
@@ -13,13 +13,13 @@ const estadoNovo = novo =>{
     })
 }
 
-const estadoGet = estadoLista =>{
+const regionalGet = estadoLista =>{
     return axios
-    .get('/estados')
+    .get('/regionais')
     .then(res =>{
        return res.data
     
     })
 }
 
-export { estadoNovo, estadoGet }
+export { regionalNovo, regionalGet }

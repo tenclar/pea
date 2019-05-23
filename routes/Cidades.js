@@ -3,23 +3,27 @@ const router = express.Router()
 
 const cors = require('cors')
 
-const Estado = require('../models/Estado')
+const Cidade = require('../models/Cidade')
 router.use(cors())
 
 
 
 router.get('/', async(req, res) => {
-    const e = await Estado.findAll()
+    const e = await Cidade.findAll()
     res.send(e)
 })
 
 router.post('/novo', (req, res) => {
    
-    const today = new Date()
+  //  const today = new Date()
    
-    const eData ={
+    const cidadeData ={
         nome: req.body.nome,
-        sigla: req.body.sigla
+        cep: req.body.cep,
+        estado_id: req.body.estado,
+        usuario_id: req.body.usuario,
+        regionalestadual_id: req.body.regionalestadual,
+
     }
     
     Estado.findOne({
@@ -27,24 +31,23 @@ router.post('/novo', (req, res) => {
             nome: req.body.nome
         }
     })
-    .then(estado => {
-        if(!estado){
-            /* bcryptjs.hash(req.body.password, 10, (err,hash) => {
-                usuarioData.password = hash; */
+    .then(cidade => {
+        if(!cidade){
+          
                 
 
-                Estado.create(eData)
-                .then (estado => {
-                    res.json({status: estado.nome + '  cadastrado !'})
+                Cidade.create(cidadeData)
+                .then (cidade => {
+                    res.json({status: cidade.nome + '  cadastrado !'})
                 })
                 .catch(err => {
                     res.send('error: '+ err)
                 })
            
-             // })
+            
 
         }else{
-            res.json({error: "Estado já Existe"})            
+            res.json({error: "Cidade já Existe"})            
         }
     })
     .catch( err => {

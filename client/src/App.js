@@ -1,62 +1,54 @@
 import React from 'react';
-//import logo from './logo.svg';
-//import './App.css';
+
 
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Login from './components/usuarios/Login'
-import Cadastro from './components/Cadastro'
+
 import Profile from './components/Profile'
 import Sidebar from './components/Sidebar'
 import SidebarRight from './components/SidebarRight'
 import Footer from './components/Footer'
 import EstadoForm from './components/estado/EstadoForm'
+import EstadoList from './components/estado/EstadoList'
+
+import CidadeList from './components/cidade/CidadeList'
+import CidadeForm from './components/cidade/CidadeForm'
+import AcoesForm from './components/acoes/AcoesForm'
 
 function App() {
 
-  
-    
-    const usuarioLink = (
-      <div>
-       <Route exatc path="/login" component={Login} />
-       <Footer />
-      </div>
-    )
-
-    const adminLink = (
-      <div>
-        <Navbar />
-          <Sidebar />
-            
-              
-              <Route exatc path="/home" component={Home} />
-              <Route exatc path="/cadastro" component={Cadastro} />            
-              <Route exatc path="/profile" component={Profile} /> 
-              <Route exatc path="/estados/novo" component={EstadoForm} /> 
-              
-            
-            <Footer />
-          <SidebarRight />
-      </div>
-    )
-       
-       
-  
-
     return (
     
-      
       <Router>
       
         <div className="App">    
 
+        <Navbar />
+        <Sidebar />
+          
+            
+            <Route exact path="/" component={Home} />
+            <Route exact path="/acoes/cadastro" component={AcoesForm} />
+                     
+            <Route exact path="/profile" component={Profile} /> 
+            
+            <Route exact path="/estados/novo" component={EstadoForm} /> 
+            <Route exact path="/estados/editar" component={EstadoForm} /> 
+            <Route exact path="/estados" component={EstadoList} /> 
+            
+            <Route exact path="/cidades" component={CidadeList} /> 
+            <Route exact path="/cidades/novo" component={CidadeForm} /> 
+           
+          <Footer />
+        <SidebarRight />
+     
         {/* localStorage.usuariotoken ? adminLink: usuarioLink */}
 
-        {localStorage.usuariotoken ?  usuarioLink: adminLink}
+        {/* localStorage.usuariotoken ?  usuarioLink: adminLink */}
         
         
-        </div>      
+          </div>      
       </Router>
     )
   }
