@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+  <!--   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
     <meta name="theme-color" content="#000000" />
     <!--
@@ -31,6 +31,8 @@
   <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+   <!-- DataTables -->
+   <link rel="stylesheet" href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
    
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
@@ -46,6 +48,8 @@
          
         <div id="root"></div>        
        
+
+     
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -65,6 +69,41 @@
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
     
+    <!-- DataTables -->
+    <!-- 
+      <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+      <script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> 
+    -->
+   
+    <!-- SlimScroll -->
+    <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/bower_components/fastclick/lib/fastclick.js"></script>
+
+ 
+<!-- page script -->
+
+<script>
+  /* 
+  $(function () {
+    $('#tbestado').DataTable()
+     $('#tbestado').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    }) 
+  })
+  
+  $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+          })
+          */
+</script>
+
+
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
