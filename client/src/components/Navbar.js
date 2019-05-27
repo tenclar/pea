@@ -79,7 +79,7 @@ class Navbar extends Component {
              
             <div className="main-header">
                             
-                <Link to="/home" className="logo">               
+                <Link to="/" className="logo">               
                     <span className="logo-mini"><b>P</b>EA</span>              
                     <span className="logo-lg"><b>Painel E-</b>AÇÕES</span>
                 </Link>
