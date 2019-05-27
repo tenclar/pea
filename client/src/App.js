@@ -15,6 +15,7 @@ import EstadoList from './components/estado/EstadoList'
 import CidadeList from './components/cidade/CidadeList'
 import CidadeForm from './components/cidade/CidadeForm'
 import AcoesForm from './components/acoes/AcoesForm'
+import AcoesFechamentoForm from './components/acoes/AcoesFechamentoForm'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             
             <Route exact path="/" component={Home} />
             <Route exact path="/acoes/cadastro" component={AcoesForm} />
+            <Route exact path="/acoes/fechamento" component={AcoesFechamentoForm} />
                      
             <Route exact path="/profile" component={Profile} /> 
             
