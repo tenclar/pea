@@ -14,7 +14,7 @@ class Sidebar extends Component {
                 </div>
                 <div className="pull-left info">
                 <p>Estado do Acre</p>
-                <small>IAIS</small>
+                <small>##&nbsp; .:: IAIS ::. &nbsp; ## </small>
                 </div>
             </div>
 
@@ -45,6 +45,7 @@ class Sidebar extends Component {
                 </a>
                 <ul className="treeview-menu">
                     <li><a href="/acoes/cadastro" >Nova Ação</a></li>
+                    <li><a href="/acoes/fechamento" >Nova Ação</a></li>
                     <li><a href="##">Lista de Ações</a></li>
                 </ul>
                 </li>
@@ -73,6 +74,7 @@ class Sidebar extends Component {
                         </span>
                     </a>
                     <ul className="treeview-menu">
+                        <li><Link to="/fonte" >Fonte de Recurso</Link></li>
                         <li><Link to="/modalidades" >Modalidades</Link></li>
                         <li><Link to="/meiotransportes" >Meio de Transportes</Link></li>                      
                         <li><Link to="/orgaos" >Orgãos</Link></li>
