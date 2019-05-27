@@ -29,10 +29,13 @@ class Sidebar extends Component {
                 </div>
             </form>
             */}
-            
             <ul className="sidebar-menu" data-widget="tree">
-                <li className="header">EXPEDIENTE</li>
-                <li className="active"><a href="/"><i className="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                
+                <li ><a href="/"><i className="fa fa-dashboard"></i> <span className="font-weight-bold">Painel Principal</span></a></li>
+            </ul>
+        
+            <ul className="sidebar-menu" data-widget="tree">
+                <li className="header">EXPEDIENTE</li>              
 
                 <li className="treeview">
                 <a href="##"><i className="fa fa-files-o"></i> <span>Ações</span>
