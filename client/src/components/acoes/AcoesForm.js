@@ -21,7 +21,7 @@ class AcoesForm extends Component {
                                 <small>Formulário de Cadastro</small>
                                 </h1>
                                 <ol className="breadcrumb">
-                                <li><a href="/"><i className="fa fa-dashboard"></i> Dashboard</a></li>
+                                <li><a href="/"><i className="fa fa-dashboard"></i> Painel </a></li>
                                 <li><a href="/acoes">Ações</a></li>
                                 <li className="active">Cadastro</li>
                                 </ol>
