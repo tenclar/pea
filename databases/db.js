@@ -10,6 +10,7 @@ const sequelize = new Sequelize("pea", "pea", "Thna+2030", {
         min:0,
         acquire:30000,
         idle: 10000
+        
 
     }
 })
