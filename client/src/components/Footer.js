@@ -12,7 +12,7 @@ class Footer extends Component {
                         DINFO<i className="fa fa-fw fa-desktop"></i>
                     </div>
                      {/*   <!-- Default to the left --> */}
-                    <strong>Copyright &copy; 2019 <a href="##">IAIS - Instituto de Ação e Inclusão Social</a>.</strong> All rights reserved.
+                    <strong>Copyright &copy; 2019 <a href="##">Secretaria de Estado de Assistência Social, dos Direitos Humanos e de Políticas para as Mulheres-SEASDHM</a>.</strong> All rights reserved.
                 </footer>
 
 

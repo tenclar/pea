@@ -14,7 +14,7 @@ class Sidebar extends Component {
                 </div>
                 <div className="pull-left info">
                 <p>Estado do Acre</p>
-                <small>##&nbsp; .:: IAIS ::. &nbsp; ## </small>
+                <small> .: SEASDHM  :.</small>
                 </div>
             </div>
 
