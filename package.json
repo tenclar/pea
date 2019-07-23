@@ -19,6 +19,7 @@
     "mysql": "^2.17.1",
     "mysql2": "^1.6.5",
     "nodemon": "^1.18.11",
+    "run": "^1.4.0",
     "sequelize": "^5.8.1"
   },
   "devDependencies": {

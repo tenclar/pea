@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {Link as a, withRouter} from 'react-router-dom'
 
 class Sidebar extends Component {
 
@@ -45,7 +45,7 @@ class Sidebar extends Component {
                 </a>
                 <ul className="treeview-menu">
                     <li><a href="/acoes/cadastro" >Nova Ação</a></li>
-                    <li><a href="/acoes/fechamento" >Nova Ação</a></li>
+                    <li><a href="/acoes/fechamento" >Fechamento da Ação</a></li>
                     <li><a href="##">Lista de Ações</a></li>
                 </ul>
                 </li>
@@ -74,17 +74,17 @@ class Sidebar extends Component {
                         </span>
                     </a>
                     <ul className="treeview-menu">
-                        <li><Link to="/fonte" >Fonte de Recurso</Link></li>
-                        <li><Link to="/modalidades" >Modalidades</Link></li>
-                        <li><Link to="/meiotransportes" >Meio de Transportes</Link></li>                      
-                        <li><Link to="/orgaos" >Orgãos</Link></li>
-                        <li><Link to="/temas" >Temas</Link></li>
-                        <li><Link to="/areatematica" >Área Temáticas</Link></li>
-                        <li><Link to="/servicos" >Serv. Sócio Assistenciais</Link></li>
-                        <li><Link to="/estados" >Estados </Link></li>
-                        <li><Link to="/cidades" >Cidades</Link></li>
-                        <li><Link to="/bairros" >Bairros </Link></li>                       
-                        <li><Link to="/enderecos" >Endereços</Link></li>
+                        <li><a href="/fonterecursos" >Fonte de Recurso</a></li>
+                        <li><a href="/modalidades" >Modalidades</a></li>
+                        <li><a href="/meiotransportes" >Meio de Transportes</a></li>                      
+                        <li><a href="/orgaos" >Orgãos</a></li>
+                        <li><a href="/temas" >Temas</a></li>
+                        <li><a href="/areastematicas" >Área Temáticas</a></li>
+                        <li><a href="/servicos" >Serv. Sócio Assistenciais</a></li>
+                        <li><a href="/estados" >Estados </a></li>
+                        <li><a href="/cidades" >Cidades</a></li>
+                        <li><a href="/bairros" >Bairros </a></li>                       
+                        <li><a href="/enderecos" >Endereços</a></li>
                     </ul>
                 </li>
             </ul>

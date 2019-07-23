@@ -7,19 +7,19 @@ const cidade = db.sequelize.define('cidades',
         id: {
             type:Sequelize.INTEGER,
             primaryKey: true,
-            autoIncremet: true
+            autoIncrement: true
         },
         
         nome: {
             type:Sequelize.STRING
         },
-        estado_id: {
+        estadoId: {
             type:Sequelize.INTEGER
         },
-        usuario_id: {
+        usuarioId: {
             type:Sequelize.INTEGER
         },
-        regionalestadual_id: {
+        regionalestadualId: {
             type:Sequelize.INTEGER
         },
         
@@ -28,7 +28,7 @@ const cidade = db.sequelize.define('cidades',
         }
                
     }
-   
 )
+
 
 module.exports = cidade

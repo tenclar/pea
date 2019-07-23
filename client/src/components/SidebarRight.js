@@ -6,19 +6,19 @@ class Sidebar extends Component {
     render(){
 
         return (
-            <div>
             
-                {/* <!-- Control Sidebar --> */}
-                <aside className="control-sidebar control-sidebar-dark">
+            
+              
+                <aside className="control-sidebar control-sidebar-dark">  {/* <!-- Control Sidebar --> */}
                 {/* <!-- Create the tabs --> */}
                 <ul className="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <li className="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i className="fa fa-home"></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i className="fa fa-wrench"></i></a></li>
+                    <li ><a href="#control-sidebar-home-tab" data-toggle="tab"><i className="fa fa-home"></i></a></li>
+                    <li className="active"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i className="fa fa-wrench"></i></a></li>
                 </ul>
                 {/* <!-- Tab panes --> */}
                 <div className="tab-content">
                     {/* <!-- Home tab content --> */}
-                    <div className="tab-pane active" id="control-sidebar-home-tab">
+                    <div className="tab-pane" id="control-sidebar-home-tab">
                     <h3 className="control-sidebar-heading">Recent Activity</h3>
                     <ul className="control-sidebar-menu">
                         <li>
@@ -60,33 +60,33 @@ class Sidebar extends Component {
                     <div className="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
                     {/* <!-- /.tab-pane --> */}
                     {/* <!-- Settings tab content --> */}
-                    <div className="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 className="control-sidebar-heading">Configurações Gerais</h3>
+                    <div className="tab-pane active" id="control-sidebar-settings-tab">
 
-                        <div className="form-group">
-                        <label className="control-sidebar-subheading">
-                            Report panel usage
-                            <input type="checkbox" className="pull-right" defaultChecked />
-                        </label>
-
-                        <p>
-                            Some information about this general settings option
-                        </p>
-                        </div>
-                        {/* <!-- /.form-group --> */}
-                    </form>
+                    <h3 className="control-sidebar-heading">Configurações Gerais</h3>
+                   
+                    
+                        <ul className="control-sidebar-menu"   >
+                            <li><a className="control-sidebar-subheading"  href="/usuarios" >Usuários</a></li>
+                            <li><a className="control-sidebar-subheading" href="/permissoes" >Permissões</a></li>
+                            <li><a className="control-sidebar-subheading" href="##">Setor</a></li>
+                        </ul>
+                    
+                        <p>  Some information about this general settings option </p>
+                    
                     </div>
                     {/* <!-- /.tab-pane --> */}
-                </div>
-                </aside>
-                {/* <!-- /.control-sidebar --> */}
+
+                     {/* <!-- /.control-sidebar --> */}
               {/*   <!-- Add the sidebar's background. This div must be placed
                 immediately after the control sidebar --> */}
-                <div className="control-sidebar-bg"></div>
+                </div>
+               
+                </aside>
+               
+              
 
 
-            </div>
+            
         )
     }
 }

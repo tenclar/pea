@@ -3,6 +3,7 @@ import axios from 'axios'
 
 const cidadeNovo = novo =>{
     return axios
+
     .post('/cidades/novo', {
 
         estado:novo.estado,
@@ -17,13 +18,22 @@ const cidadeNovo = novo =>{
     })
 }
 
-const cidadeGet = estadoLista =>{
-    return axios
-    .get('/cidades')
-    .then(res =>{
-       return res.data
+const cidadeGet = arg =>{
     
+    return axios
+    .get('/cidades/'+arg)
+    .then(res => {
+       return res.data
     })
 }
 
-export { cidadeNovo, cidadeGet }
+const cidadeIdGet = id =>{
+    
+    return axios
+    .get('/cidades/estado/'+id)
+    .then(res => {
+       return res.data
+    })
+}
+
+export { cidadeNovo, cidadeGet, cidadeIdGet }

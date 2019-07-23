@@ -18,7 +18,12 @@ const estado = db.sequelize.define('estados',
             type:Sequelize.STRING
         }
                
-    }
+    },
+    {
+        underscored: false,
+        Sequelize,
+        modelName: 'estados'
+     }
    
 )
 

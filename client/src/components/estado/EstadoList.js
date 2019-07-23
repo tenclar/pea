@@ -37,7 +37,7 @@ class EstadoList extends Component {
         return(
             
             
-                    <div className="wrapper">
+                    <div >
                         {/* Content Wrapper. Contains page content */}
                         <div className="content-wrapper">
                             {/*Content Header (Page header)*/ }
@@ -58,9 +58,9 @@ class EstadoList extends Component {
 
                                      
                                     <div className="row">
-                                    <div className="col-xs-2">
+                                    <div className="col-xs-1">
                                     </div>  
-                                    <div className="col-xs-8">                
+                                    <div className="col-xs-10">                
 
                                     <div className="box">
                                     <div className="box-header">

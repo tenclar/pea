@@ -1,5 +1,5 @@
 const express = require('express')
-const usuarios = express.Router()
+const router = express.Router()
 
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
@@ -7,19 +7,19 @@ const jwt = require('jsonwebtoken')
 const bcryptjs = require('bcryptjs')
 
 const Usuario = require('../models/Usuario')
-usuarios.use(cors())
+router.use(cors())
 
 process.env.SECRET_KEY = 'secret'
 
-usuarios.post('/cadastro', (req, res) => {
+router.post('/cadastro', (req, res) => {
    
-    const today = new Date()
+    
    
     const usuarioData ={
         nome: req.body.nome,
         email: req.body.email,
-        password: req.body.password,
-        created: today
+        password: req.body.password
+        
     }
     
     Usuario.findOne({
@@ -33,7 +33,8 @@ usuarios.post('/cadastro', (req, res) => {
                 usuarioData.password = hash;
                 Usuario.create(usuarioData)
                 .then (usuario => {
-                    res.json({status: usuario.email + '  cadastrado !'})
+                    console.log('cadastro ' + usuario.email + ' efetuado' )
+                    //res.json({status: usuario.email + '  cadastrado !'})
                 })
                 .catch(err => {
                     res.send('error: '+ err)
@@ -48,7 +49,7 @@ usuarios.post('/cadastro', (req, res) => {
     })
 })
  
-usuarios.post('/login', (req, res) => {
+router.post('/login', (req, res) => {
     Usuario.findOne({
         where: {
             email: req.body.email
@@ -69,4 +70,15 @@ usuarios.post('/login', (req, res) => {
     })
 })
 
-module.exports = usuarios
+router.get('/', async(req, res) => {
+    const e = await Usuario.findAll({  
+       
+        limit: 1000 
+    })
+    
+    res.send(e)
+}) 
+
+
+
+module.exports = router

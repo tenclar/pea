@@ -77,7 +77,7 @@ class Navbar extends Component {
         return (
             
              
-            <div className="main-header">
+            <header className="main-header">
                             
                 <Link to="/" className="logo">               
                     <span className="logo-mini"><b>P</b>EA</span>              
@@ -246,33 +246,33 @@ class Navbar extends Component {
                 </nav>
 
         
-                    
-            </div>
+                {/* 
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounder">
+                    <button className="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbar1"
+                    aria-controls="navbar1"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span className="navbar-toggle-icon"></span>
+                    </button>
+    
+                    <div className="collapse navbar-collapse justify-content-md-center" id="navbar1">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link">
+                                    Home
+                                </Link>
+                            </li>
+                        </ul>
+                        {localStorage.usuariotoken ? usuarioLink: loginRegLink}
+                    </div>
+                  </nav> */}
+            </header>
             
 
-            /* 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounder">
-                <button className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbar1"
-                aria-controls="navbar1"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span className="navbar-toggle-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse justify-content-md-center" id="navbar1">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">
-                                Home
-                            </Link>
-                        </li>
-                    </ul>
-                    {localStorage.usuariotoken ? usuarioLink: loginRegLink}
-                </div>
-            </nav> */
+           
         )
 
     }

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const cadastro = newUsuario =>{
+ const usuarioNovo = newUsuario =>{
     return axios
     .post('usuarios/cadastro', {
         nome: newUsuario.nome,
@@ -8,11 +8,11 @@ export const cadastro = newUsuario =>{
         password: newUsuario.password
     })
     .then(res => {
-        console.log(" Registrado ")
+        console.log(" Registrado "+res.data)
     })
 }
 
-export const login = usuario => {
+ const login = usuario => {
     return axios
     .post('usuarios/login', {
         email: usuario.email,
@@ -26,3 +26,16 @@ export const login = usuario => {
         console.log(err)
     })
 }
+
+
+
+const usuarioGet = usuarioLista =>{
+    return axios
+    .get('/usuarios')
+    .then(res =>{
+       return res.data
+    
+    })
+}
+
+export { usuarioNovo, login, usuarioGet }
