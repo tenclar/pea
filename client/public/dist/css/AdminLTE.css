@@ -86,7 +86,7 @@
    }
  }
  .content-wrapper {
-   min-height: 100%;
+   min-height: 780px;
    background-color: #ecf0f5;
    z-index: 800;
  }
