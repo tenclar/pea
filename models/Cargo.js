@@ -1,7 +1,8 @@
+
 const Sequelize = require("sequelize")
 const db = require("../databases/db")
 
-const servicocategoria = db.sequelize.define('servicoscategorias',
+const cargo = db.sequelize.define('cargos',
     
     {
         id: {
@@ -23,4 +24,4 @@ const servicocategoria = db.sequelize.define('servicoscategorias',
 )
 
 
-module.exports = servicocategoria
+module.exports = cargo

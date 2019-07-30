@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
 const db = require("../databases/db")
 
-const usuario = db.sequelize.define('usuarios',
+const tecnicos = db.sequelize.define('tecnicos',
     
     {
         id: {
@@ -13,18 +13,14 @@ const usuario = db.sequelize.define('usuarios',
         nome: {
             type:Sequelize.STRING
         },
-        sobrenome: {
+        celular: {
             type:Sequelize.STRING
         },
-        cpf: {
-            type:Sequelize.STRING
-        },
+       
         email: {
             type:Sequelize.STRING
         },
-        password: {
-            type:Sequelize.STRING
-        },
+       
         enderecoId:{
             type:Sequelize.INTEGER
         },
@@ -39,8 +35,8 @@ const usuario = db.sequelize.define('usuarios',
     },
     {
         
-        modelName:'usuarios'
+        modelName:'tecnicos'
     }
 )
 
-module.exports = usuario
+module.exports = tecnicos
