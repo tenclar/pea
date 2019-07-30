@@ -51,6 +51,15 @@ app.use('/modalidades', modalidades)
 const servicos = require('./routes/Servicos')
 app.use('/servicossocioassistenciais', servicos)
 
+const servicosCategorias = require('./routes/ServicoCategorias')
+app.use('/servicoscategorias', servicosCategorias)
+
+const Cargos = require('./routes/Cargos')
+app.use('/cargos', Cargos)
+
+const Setores = require('./routes/Setores')
+app.use('/setores', Setores)
+
 app.listen(port, () => {
     console.log("Server is running on port: " + port)
 })
