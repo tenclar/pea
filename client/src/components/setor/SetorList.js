@@ -1,13 +1,11 @@
 import React, {Component} from 'react'
+import {setorGet} from './SetorFunctions'
 
-import {servicoCategoriaGet} from './ServicoCategoriaFunctions'
-
-
-class OrgaoList extends Component {
+class SetorList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            categorias:[]            
+            setores:[]            
         }
 
        // this.onChange = this.onChange.bind(this)
@@ -20,16 +18,18 @@ class OrgaoList extends Component {
     } */
 
     componentDidMount(){
-        servicoCategoriaGet().then( categorias => {
+        setorGet().then(setores => {
             
                 this.setState({
-                    categorias: categorias                     
+                    setores:setores                      
                    })        
-        })          
+        })   
+        
+        
     }
 
     render(){
-        const { categorias } = this.state
+        const { setores } = this.state
 
 
         return(
@@ -40,13 +40,13 @@ class OrgaoList extends Component {
                         <div className="content-wrapper">
                             {/*Content Header (Page header)*/ }
                             <section className="content-header">
-                                <h1>
-                                Categoria de Serviços
-                                <small>Cadastro </small>
+                                <h1> 
+                                Setor
+                                <small>Cadastro de Setor</small>
                                 </h1>
                                 <ol className="breadcrumb">
-                                <li><a href="/"><i className="fa fa-dashboard"></i> Painel Pricipal</a></li>
-                                <li><a href="/categoriaservicos">Categorias de Servisos</a></li>
+                                <li><a href="/"><i className="fa fa-dashboard"></i> Painel Principal</a></li>
+                                <li><a href="/setors">Setors</a></li>
                                 <li className="active">Lista</li>
                                 </ol>
                             </section>
@@ -62,18 +62,18 @@ class OrgaoList extends Component {
 
                                     <div className="box">
                                     <div className="box-header">
-                                        <h3 className="box-title">Lista de Orgãos</h3>
+                                        <h3 className="box-title">Lista de Setors</h3>
                                     </div>
                                     {/* <!-- /.box-header --> */}
                                     <div className="box-body">
 
                                         
-                                        <table id="tbestado" className="table table-bordered table-striped text-center ">
+                                        <table id="tbsetor" className="table table-bordered table-striped text-center ">
                                             <thead>
                                                 <tr  >
                                                     <th className="col-xs-2" >
                                                         <div className="btn-group">
-                                                            <a  href="/orgaos/novo" 
+                                                            <a  href="/setors/novo" 
                                                                 title="Novo Cadastro" 
                                                                 data-toggle="tooltip"
                                                                  data-placement="top" 
@@ -89,12 +89,12 @@ class OrgaoList extends Component {
                                                 </tr>
                                             </thead>
                                             <tbody> 
-                                                { categorias.map( p =>
+                                                { setores.map( setor =>
                                                   
-                                                <tr key={p.id} >
+                                                <tr key={setor.id} >
                                                 <td >
                                                 <div className="btn-group" role="group" aria-label="ações">
-                                                    <a  href="/categorias/editar"
+                                                    <a  href="/setors/editar"
                                                     type="button" 
                                                         title="Editar"
                                                         data-toggle="tooltip"
@@ -109,9 +109,9 @@ class OrgaoList extends Component {
                                                       </button>
                                                 </div>
                                                 </td>
-                                                    <td>{p.id}</td>
-                                                    <td>{p.nome}</td>
-                                                    <td>{p.descricao}</td>
+                                                    <td> {setor.id} </td>
+                                                    <td>{setor.nome}  </td>
+                                                    <td>{setor.descricao}</td>
                                                     
                                                 </tr>
                                                  ) }
@@ -157,4 +157,4 @@ class OrgaoList extends Component {
     }
 }
 
-export default OrgaoList
+export default SetorList

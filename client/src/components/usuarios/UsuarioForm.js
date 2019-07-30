@@ -1,12 +1,18 @@
 import React, {Component} from 'react'
 //import {usuarioNovo} from './UsuarioFunctions'
+import {orgaoGet} from '../orgao/OrgaoFunctions'
+import {setorGet} from '../setor/SetorFunctions'
+import {cargoGet} from '../cargo/CargoFunctions'
 
 const initState = {
     nome:'',
     email:'',
     password:'',
-    messages:'' ,   
-    fields:{nome:'', email:'', password: ''},
+    messages:'' ,
+    cargos:[],
+    setores:[],
+    orgaos:[],   
+    fields:{nome:'', sobrenome:'', email:'', password: '', cpf:''},
     errors:{}
 
 }
@@ -21,7 +27,25 @@ class UsuarioForm extends Component {
         this.onCancel = this.onCancel.bind(this)
     }
 
+    componentDidMount(){
+      orgaoGet().then(orgaos => {            
+          this.setState({
+            orgaos:orgaos                      
+          })        
+        })
 
+        setorGet().then(setores => {            
+          this.setState({
+            setores:setores                      
+          })        
+        })
+
+        cargoGet().then(cargos => {            
+          this.setState({
+            cargos:cargos                      
+          })        
+        })
+    }
     
     validateForm(){
       let fields = this.state.fields
@@ -34,7 +58,17 @@ class UsuarioForm extends Component {
           errors["nome"] = "Por Favor, Informe nome. "
           
       }
+      if (!fields["sobrenome"]) {
+        formIsValid = false            
+        errors["sobrenome"] = "Por Favor, Informe sobrenome. "
+        
+    }
 
+    if (!fields["cpf"]) {
+      formIsValid = false            
+      errors["cpf"] = "Por Favor, Informe CPF. "
+      
+    }
       if (!fields["email"]) {
           formIsValid = false
           errors["email"] = "Por Favor, Informe e-mail "
@@ -71,6 +105,29 @@ class UsuarioForm extends Component {
           }
       }
 
+      if (!fields["orgaoId"]) {
+        formIsValid = false
+        errors["orgaoId"] = "*Selecione Um Orgão."
+
+    }
+      if (typeof fields["orgaoId"] !== "undefined") {
+        if (fields["orgaoId"].match(0)) {
+            formIsValid = false;
+            errors["orgaoId"] = "* Orgão inválido.";
+        }
+    }
+
+    if (!fields["setorId"]) {
+      formIsValid = false
+      errors["setorId"] = "*Selecione Um Setor."
+
+    }
+    if (!fields["cargoId"]) {
+    formIsValid = false
+    errors["cargoId"] = "*Selecione Um Cargo."
+
+    }
+  
 
       this.setState({ errors:errors })
       return formIsValid
@@ -111,7 +168,8 @@ class UsuarioForm extends Component {
           fields["nome"] = ''
           fields["email"] = ''
           fields["password"] = ''
-        
+          fields["sobrenome"] = ''
+          fields["cpf"] = ''
 
           this.setState({ fields:fields})
           console.log("Usuario: "+this.state.fields)
@@ -122,7 +180,7 @@ class UsuarioForm extends Component {
 
     render(){
 
-      const {  errors } = this.state
+      const { cargos, setores, orgaos, errors } = this.state
         return(
            <div>
             <div className="modal fade" id="modal-usuario">
@@ -135,17 +193,41 @@ class UsuarioForm extends Component {
                   <h4 className="modal-title">Cadastro de Usuário</h4>
                 </div>
                 <div className="modal-body">
-                <div className={errors.nome !== undefined ?  "form-group has-error": "form-group"}>
+                    <div className={errors.nome !== undefined ?  "form-group has-error": "form-group"}>
                         <label htmlFor="nome">Nome</label>
                         <input type="text"  autoComplete="off"
                         className="form-control input-lg"                      
-                        placeholder="Escreva Nome do Usuario"
+                        placeholder="Escreva Nome "
                         id="nome" 
                         name="nome"
                         value={this.state.fields.nome}
                         onChange={this.onChange}
                         />
                         <div className="help-block">{errors.nome}</div>
+                    </div>
+                    <div className={errors.sobrenome !== undefined ?  "form-group has-error": "form-group"}>
+                      <label htmlFor="sobrenome">Sobrenome</label>
+                      <input type="text"  autoComplete="off"
+                      className="form-control input-lg"                      
+                      placeholder="Escreva o Sobrenome "
+                      id="sobrenome" 
+                      name="sobrenome"
+                      value={this.state.fields.sobrenome}
+                      onChange={this.onChange}
+                      />
+                      <div className="help-block">{errors.sobrenome}</div>
+                    </div>
+                    <div className={errors.cpf !== undefined ?  "form-group has-error": "form-group"}>
+                      <label htmlFor="cpf">CPF</label>
+                      <input type="text"  autoComplete="off"
+                      className="form-control input-lg"                      
+                      placeholder="Escreva o Sobrenome "
+                      id="cpf" 
+                      name="cpf"
+                      value={this.state.fields.cpf}
+                      onChange={this.onChange}
+                      />
+                      <div className="help-block">{errors.cpf}</div>
                     </div>
                     <div className={errors.email !== undefined ?  "form-group has-error": "form-group"}>
                         <label htmlFor="email">E-mail</label>
@@ -169,9 +251,91 @@ class UsuarioForm extends Component {
                         onChange={this.onChange} />
                         <div className="help-block">{errors.password}</div>
                     </div> 
+
+                    <div className="row">
+                    <div className="col-xs-4">
+                            <div className=   { errors.orgaoId !== undefined ?  "form-group has-error": "form-group"}>
+                                <label htmlFor="cargoId">Orgão</label>
+                                <select 
+                                className="form-control input-lg"                     
+                                placeholder="Selecione o Orgão"
+                                id="orgaoId"
+                                name="orgaoId"    
+                                
+                                value={this.state.fields.orgaoId}     
+                                onChange={this.onChange}                                   
+                                >
+                                <option value={0} >Selecione</option>
+                                { orgaos.map( orgao => 
+                                        <option key={orgao.id} value={orgao.id}  >{orgao.nome}</option>
+                                        
+                                )}
+                                </select>
+                                <div className="help-block">
+                                    {errors.orgaoId} 
+                                </div>
+                            </div>                                                    
+                        
+                        </div>
+
+                        <div className="col-xs-4">
+                            <div className={errors.setorId !== undefined ?  "form-group has-error": "form-group" }>
+                                <label htmlFor="setorId">Setor</label>
+                                <select 
+                                className="form-control input-lg"                     
+                                placeholder="Selecione regional"
+                                id="setorId"
+                                name="setorId" 
+                                value={this.state.fields.setorId}     
+                                onChange={this.onChange}     
+                                >
+                                <option value={0} >Selecione</option>
+                                { setores.map( r => 
+                                        <option key={r.id} value={r.id} >{r.nome}</option>
+                                )}                                                                
+                                        
+                                </select>
+                                <div className="help-block">
+                                    {errors.setorId}
+                                </div>
+                            </div>                        
+                        </div>
+                        <div className="col-xs-4">
+                            <div className=   { errors.cargoId !== undefined ?  "form-group has-error": "form-group"}>
+                                <label htmlFor="cargoId">Cargo</label>
+                                <select 
+                                className="form-control input-lg"                     
+                                placeholder="Selecione o Cargo"
+                                id="cargoId"
+                                name="cargoId"    
+                                
+                                value={this.state.fields.cargoId}     
+                                onChange={this.onChange}                                   
+                                >
+                                <option value={0} >Selecione</option>
+                                { cargos.map( cargo => 
+                                        <option key={cargo.id} value={cargo.id}  >{cargo.nome}</option>
+                                        
+                                )}
+                                </select>
+                                <div className="help-block">
+                                    {errors.cargoId} 
+                                </div>
+                            </div>                                                    
+                        
+                        </div>
+
+               
+                        
+                                        
+                      </div>
+            
+            
+            
+
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-danger pull-left" onClick={this.onCancel}   data-dismiss="modal">Close</button>
+                  <button type="reset" className="btn btn-danger pull-left" onClick={this.onCancel}   data-dismiss="modal">Close</button>
                   <button type="submit" className="btn btn-primary"  onClick={this.onSubmit}  >Salvar</button>
                 </div>
                 </form>

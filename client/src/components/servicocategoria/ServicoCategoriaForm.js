@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 
-import {servicocategoriaNovo} from './ServicoCategoriaFunctions'
+import {servicoCategoriaNovo} from './ServicoCategoriaFunctions'
 
 
 
@@ -86,8 +86,8 @@ class RecursoForm extends Component {
            
 
             this.setState({ fields:fields})
-            servicocategoriaNovo(this.state.fields).then(res => {           
-                 this.props.history.push('/servicocategorias')    
+            servicoCategoriaNovo(this.state.fields).then(res => {           
+                 this.props.history.push('/categoriaservicos')    
              })
             
         }
@@ -114,7 +114,7 @@ class RecursoForm extends Component {
                                 </h1>
                                 <ol className="breadcrumb">
                                 <li><a href="/"><i className="fa fa-dashboard"></i> Painel Principal</a></li>
-                                <li><a href="/servicocategorias">Categorias do Serviço</a></li>
+                                <li><a href="/categoriaservicos">Categorias do Serviço</a></li>
                                 <li className="active">Novo</li>
                                 </ol>
                             </section>
@@ -168,7 +168,7 @@ class RecursoForm extends Component {
 
                                         <div className="box-footer ">
                                             <button type="submit" className="btn btn-primary">Salvar</button>
-                                            <a href="/orgaos" className="btn btn-danger">Cancelar</a>
+                                            <a href="/categoriaservicos" className="btn btn-danger">Cancelar</a>
                                         </div>
                                     </form>
                                 </div>

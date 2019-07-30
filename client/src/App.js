@@ -49,6 +49,20 @@ import ServicoForm from './components/servico/ServicoForm'
 import ServicoList from './components/servico/ServicoList'
 
 
+import ServicoCategoriaForm from './components/servicocategoria/ServicoCategoriaForm'
+import ServicoCategoriaList from './components/servicocategoria/ServicoCategoriaList'
+
+import CargoForm from './components/cargo/CargoForm'
+import CargoList from './components/cargo/CargoList'
+
+import SetorForm from './components/setor/SetorForm'
+import SetorList from './components/setor/SetorList'
+
+import TecnicoForm from './components/tecnico/TecnicoForm'
+import TecnicoList from './components/tecnico/TecnicoList'
+
+
+
 function App() {
 
     return (
@@ -58,7 +72,7 @@ function App() {
       <Navbar />
 
           <Sidebar />
-          <div  className="wrapper" >
+          <div  className="wrapper" >   </div>
          
           
             <Route exact path="/" component={Home} />
@@ -97,20 +111,27 @@ function App() {
             <Route exact path="/meiotransportes" component={MeioTransporteList} /> 
             <Route exact path="/meiotransportes/novo" component={MeioTransporteForm} /> 
 
-            
-            <Route exact path="/orgaos" component={OrgaoList} /> 
-            <Route exact path="/orgaos/novo" component={OrgaoForm} /> 
-
-            
+                       
             <Route exact path="/servicos" component={ServicoList} /> 
             <Route exact path="/servicos/novo" component={ServicoForm} /> 
 
-            <Footer />
-            <SidebarRight />
-          {/*   <div className="control-sidebar-bg"></div> */}
-            <div  className="clear-fix"></div>
-            </div>
+            <Route exact path="/categoriaservicos" component={ServicoCategoriaList} /> 
+            <Route exact path="/categoriaservicos/novo" component={ServicoCategoriaForm} /> 
+
+            <Route exact path="/orgaos" component={OrgaoList} /> 
+            <Route exact path="/orgaos/novo" component={OrgaoForm} /> 
+
+            <Route exact path="/setores" component={SetorList} /> 
+            <Route exact path="/setores/novo" component={SetorForm} /> 
         
+            
+            <Route exact path="/cargos" component={CargoList} /> 
+            <Route exact path="/cargos/novo" component={CargoForm} /> 
+
+            <Route exact path="/tecnicos" component={TecnicoList} /> 
+            <Route exact path="/tecnicos/novo" component={TecnicoForm} /> 
+            
+           
 
 
     
@@ -118,7 +139,9 @@ function App() {
         {/* localStorage.usuariotoken ? adminLink: usuarioLink */}
 
         {/* localStorage.usuariotoken ?  usuarioLink: adminLink */}
-        
+        <Footer /> 
+        <SidebarRight />
+         <div className="control-sidebar-bg"></div>
              
       </Router>
      

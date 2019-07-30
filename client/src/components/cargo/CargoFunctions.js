@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 
-const servicoCategoriaNovo = novo =>{
+const cargoNovo = novo =>{
     return axios
-    .post('/servicoscategorias/novo', {
+    .post('/cargos/novo', {
         nome: novo.nome,
         descricao: novo.descricao
         
@@ -13,13 +13,13 @@ const servicoCategoriaNovo = novo =>{
     })
 }
 
-const servicoCategoriaGet = lista =>{
+const cargoGet = cargoLista =>{
     return axios
-    .get('/servicoscategorias')
+    .get('/cargos')
     .then(res =>{
        return res.data
     
     })
 }
 
-export { servicoCategoriaNovo, servicoCategoriaGet }
+export { cargoNovo, cargoGet }

@@ -68,7 +68,8 @@ class Sidebar extends Component {
                         <ul className="control-sidebar-menu"   >
                             <li><a className="control-sidebar-subheading"  href="/usuarios" >Usuários</a></li>
                             <li><a className="control-sidebar-subheading" href="/permissoes" >Permissões</a></li>
-                            <li><a className="control-sidebar-subheading" href="##">Setor</a></li>
+                            <li><a className="control-sidebar-subheading" href="/setores">Setores</a></li>
+                            <li><a className="control-sidebar-subheading" href="/cargos">Cargos</a></li>
                         </ul>
                     
                         <p>  Some information about this general settings option </p>

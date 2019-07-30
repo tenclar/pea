@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link as a, withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 class Sidebar extends Component {
 
@@ -31,7 +31,7 @@ class Sidebar extends Component {
             */}
             <ul className="sidebar-menu" data-widget="tree">
                 
-                <li ><a href="/"><i className="fa fa-dashboard"></i> <span className="font-weight-bold">Painel Principal</span></a></li>
+                <li ><Link to="/"><i className="fa fa-dashboard"></i> <span className="font-weight-bold">Painel Principal</span></Link></li>
             </ul>
         
             <ul className="sidebar-menu" data-widget="tree">
@@ -78,13 +78,18 @@ class Sidebar extends Component {
                         <li><a href="/modalidades" >Modalidades</a></li>
                         <li><a href="/meiotransportes" >Meio de Transportes</a></li>                      
                         <li><a href="/orgaos" >Orgãos</a></li>
+                        <li><a href="/setores" >Setores</a></li>
+                        <li><a href="/cargos" >Cargos</a></li>
+                        <li><a href="/tecnicos" >Técnicos</a></li>
                         <li><a href="/temas" >Temas</a></li>
-                        <li><a href="/areastematicas" >Área Temáticas</a></li>
+                        <li><a href="/areastematicas" >Áreas Temáticas</a></li>
                         <li><a href="/servicos" >Serv. Sócio Assistenciais</a></li>
+                        <li><a href="/categoriaservicos" >Categoria de Serviços</a></li>
                         <li><a href="/estados" >Estados </a></li>
                         <li><a href="/cidades" >Cidades</a></li>
                         <li><a href="/bairros" >Bairros </a></li>                       
                         <li><a href="/enderecos" >Endereços</a></li>
+                        
                     </ul>
                 </li>
             </ul>

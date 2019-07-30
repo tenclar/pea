@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 
-import {servicoCategoriaGet} from './ServicoCategoriaFunctions'
+import {cargoGet} from './CargoFunctions'
 
 
-class OrgaoList extends Component {
+class CargoList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            categorias:[]            
+            cargos:[]            
         }
 
        // this.onChange = this.onChange.bind(this)
@@ -20,16 +20,18 @@ class OrgaoList extends Component {
     } */
 
     componentDidMount(){
-        servicoCategoriaGet().then( categorias => {
+        cargoGet().then(cargos => {
             
                 this.setState({
-                    categorias: categorias                     
+                    cargos:cargos                      
                    })        
-        })          
+        })   
+        
+        
     }
 
     render(){
-        const { categorias } = this.state
+        const { cargos } = this.state
 
 
         return(
@@ -41,12 +43,12 @@ class OrgaoList extends Component {
                             {/*Content Header (Page header)*/ }
                             <section className="content-header">
                                 <h1>
-                                Categoria de Serviços
-                                <small>Cadastro </small>
+                                Cargo
+                                <small>Cadastro de Cargo</small>
                                 </h1>
                                 <ol className="breadcrumb">
-                                <li><a href="/"><i className="fa fa-dashboard"></i> Painel Pricipal</a></li>
-                                <li><a href="/categoriaservicos">Categorias de Servisos</a></li>
+                                <li><a href="/"><i className="fa fa-dashboard"></i> Painel Principal</a></li>
+                                <li><a href="/cargos">Cargos</a></li>
                                 <li className="active">Lista</li>
                                 </ol>
                             </section>
@@ -62,18 +64,18 @@ class OrgaoList extends Component {
 
                                     <div className="box">
                                     <div className="box-header">
-                                        <h3 className="box-title">Lista de Orgãos</h3>
+                                        <h3 className="box-title">Lista de Cargos</h3>
                                     </div>
                                     {/* <!-- /.box-header --> */}
                                     <div className="box-body">
 
                                         
-                                        <table id="tbestado" className="table table-bordered table-striped text-center ">
+                                        <table id="tbcargo" className="table table-bordered table-striped text-center ">
                                             <thead>
                                                 <tr  >
                                                     <th className="col-xs-2" >
                                                         <div className="btn-group">
-                                                            <a  href="/orgaos/novo" 
+                                                            <a  href="/cargos/novo" 
                                                                 title="Novo Cadastro" 
                                                                 data-toggle="tooltip"
                                                                  data-placement="top" 
@@ -84,17 +86,17 @@ class OrgaoList extends Component {
                                                     </th>
                                                     <th>#</th>
                                                     <th>Nome</th>
-                                                    <th>Descrição</th>
+                                                    <th className="col-xs-6" >Descrição</th>
                                                    
                                                 </tr>
                                             </thead>
                                             <tbody> 
-                                                { categorias.map( p =>
+                                                { cargos.map( cargo =>
                                                   
-                                                <tr key={p.id} >
+                                                <tr key={cargo.id} >
                                                 <td >
                                                 <div className="btn-group" role="group" aria-label="ações">
-                                                    <a  href="/categorias/editar"
+                                                    <a  href="/cargos/editar"
                                                     type="button" 
                                                         title="Editar"
                                                         data-toggle="tooltip"
@@ -109,9 +111,9 @@ class OrgaoList extends Component {
                                                       </button>
                                                 </div>
                                                 </td>
-                                                    <td>{p.id}</td>
-                                                    <td>{p.nome}</td>
-                                                    <td>{p.descricao}</td>
+                                                    <td> {cargo.id} </td>
+                                                    <td>{cargo.nome}  </td>
+                                                    <td>{cargo.descricao}</td>
                                                     
                                                 </tr>
                                                  ) }
@@ -157,4 +159,4 @@ class OrgaoList extends Component {
     }
 }
 
-export default OrgaoList
+export default CargoList
