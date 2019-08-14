@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import TecnicoForm from './TecnicoForm'
 import {tecnicoGet} from './TecnicoFunctions'
 
 
